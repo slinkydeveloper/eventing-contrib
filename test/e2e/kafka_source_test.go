@@ -48,7 +48,7 @@ func TestKafkaSource(t *testing.T) {
 		contribcommon.CreateKafkaSourceOrFail(client, contribresources.KafkaSource(
 			kafkaBootstrapUrl,
 			kafkaTestTopic,
-			resources.ServiceRef("perf-consumer"),
+			resources.ServiceRef(resources.PerfConsumerService),
 		))
 
 		client.Dynamic = dynamic.NewForConfigOrDie(client.Config)
@@ -58,7 +58,7 @@ func TestKafkaSource(t *testing.T) {
 
 		t.Logf("Starting receiver pod")
 		client.CreatePodOrFail(resources.PerformanceImageReceiverPod(kafkaPerformanceImageName, testPace, testWarmup, aggregatorHostname))
-		client.WaitForServiceEndpointsOrFail("perf-consumer", 1)
+		client.WaitForServiceEndpointsOrFail(resources.PerfConsumerService, 1)
 
 		t.Logf("Starting sender pod")
 		client.CreatePodOrFail(contribresources.KafkaPerformanceImageSenderPod(testPace, testWarmup, kafkaBootstrapUrl, kafkaTestTopic, aggregatorHostname))

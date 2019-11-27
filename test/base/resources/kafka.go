@@ -21,6 +21,7 @@ import (
 
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"knative.dev/eventing/test/base/resources"
 	duckv1beta1 "knative.dev/pkg/apis/duck/v1beta1"
 	pkgTest "knative.dev/pkg/test"
 
@@ -48,7 +49,7 @@ func KafkaPerformanceImageSenderPod(pace string, warmup string, bootstrapUrl str
 			},
 		},
 		Spec: corev1.PodSpec{
-			ServiceAccountName: "perf-eventing",
+			ServiceAccountName: resources.PerfServiceAccount,
 			RestartPolicy:      corev1.RestartPolicyNever,
 			Containers: []corev1.Container{{
 				Name:  "receiver",
