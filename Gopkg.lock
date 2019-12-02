@@ -1789,7 +1789,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d3cb9774aba1ae91e0db4c0f7fa4899a4369c79b5ca80c8e9d9f9a7b1a6d3b20"
+  digest = "1:122fe64f59262d967b0223a6b54a8f25ddc6ab50629e2a9d08e661aa5fb6cb21"
   name = "knative.dev/eventing"
   packages = [
     "pkg/adapter",
@@ -1858,6 +1858,7 @@
     "test/common/performance/sender",
     "test/e2e/helpers",
     "test/test_images/logevents",
+    "test/test_images/performance",
     "test/test_images/sendevents",
     "test/test_images/transformevents",
   ]
@@ -2180,6 +2181,7 @@
     "knative.dev/eventing/test/common/performance/sender",
     "knative.dev/eventing/test/e2e/helpers",
     "knative.dev/eventing/test/test_images/logevents",
+    "knative.dev/eventing/test/test_images/performance",
     "knative.dev/eventing/test/test_images/sendevents",
     "knative.dev/eventing/test/test_images/transformevents",
     "knative.dev/pkg/apis",
