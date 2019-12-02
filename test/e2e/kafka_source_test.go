@@ -65,6 +65,7 @@ func TestKafkaSource(t *testing.T) {
 		t.Logf("Starting sender pod")
 		client.CreatePodOrFail(contribresources.KafkaPerformanceImageSenderPod(testPace, testWarmup, kafkaBootstrapUrl, kafkaTestTopic, aggregatorHostname))
 	}, func(t *testing.T, results *helpers.PerformanceImageResults) {
+		t.Logf("Received results %+v", *results)
 		if !reflect.DeepEqual(*results, expectedStruct) {
 			t.Fatalf("Have %+v, Expecting %+v", *results, expectedStruct)
 		}
