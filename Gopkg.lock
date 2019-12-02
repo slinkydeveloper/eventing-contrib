@@ -1789,7 +1789,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:6017fc0c20bc04dddb02e4134525982a89db1f498bed579dc4de693536914114"
+  digest = "1:d3cb9774aba1ae91e0db4c0f7fa4899a4369c79b5ca80c8e9d9f9a7b1a6d3b20"
   name = "knative.dev/eventing"
   packages = [
     "pkg/adapter",
@@ -1862,7 +1862,7 @@
     "test/test_images/transformevents",
   ]
   pruneopts = "UT"
-  revision = "67225efe772a97d170029be0930f877ab7121cc2"
+  revision = "33b715568284fbd507396064cd5017ae98b42238"
 
 [[projects]]
   branch = "master"
@@ -1874,19 +1874,7 @@
     "apis/duck/v1",
     "apis/duck/v1alpha1",
     "apis/duck/v1beta1",
-    "apis/istio",
-    "apis/istio/authentication",
-    "apis/istio/authentication/v1alpha1",
-    "apis/istio/common/v1alpha1",
-    "apis/istio/v1alpha3",
     "changeset",
-    "client/clientset/versioned",
-    "client/clientset/versioned/fake",
-    "client/clientset/versioned/scheme",
-    "client/clientset/versioned/typed/authentication/v1alpha1",
-    "client/clientset/versioned/typed/authentication/v1alpha1/fake",
-    "client/clientset/versioned/typed/istio/v1alpha3",
-    "client/clientset/versioned/typed/istio/v1alpha3/fake",
     "client/injection/kube/client",
     "client/injection/kube/client/fake",
     "client/injection/kube/informers/admissionregistration/v1beta1/mutatingwebhookconfiguration",
@@ -2221,6 +2209,7 @@
     "knative.dev/pkg/source",
     "knative.dev/pkg/system",
     "knative.dev/pkg/system/testing",
+    "knative.dev/pkg/test",
     "knative.dev/pkg/tracing",
     "knative.dev/pkg/webhook",
     "knative.dev/pkg/webhook/certificates",
