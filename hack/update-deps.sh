@@ -51,5 +51,5 @@ git apply ${REPO_ROOT_DIR}/hack/update-image-paths.patch
 
 ## Hack to vendor performance image from eventing
 rm -rf ${REPO_ROOT_DIR}/vendor/knative.dev/eventing/test/test_images/performance/kodata/*
-ln -s ${REPO_ROOT_DIR}/.git/HEAD ${REPO_ROOT_DIR}/vendor/knative.dev/eventing/test/test_images/performance/kodata/HEAD
-ln -s ${REPO_ROOT_DIR}/.git/refs ${REPO_ROOT_DIR}/vendor/knative.dev/eventing/test/test_images/performance/kodata/refs
+ln -s ../../../../../../../.git/HEAD ${REPO_ROOT_DIR}/vendor/knative.dev/eventing/test/test_images/performance/kodata/HEAD
+ln -s ../../../../../../../.git/refs ${REPO_ROOT_DIR}/vendor/knative.dev/eventing/test/test_images/performance/kodata/refs
