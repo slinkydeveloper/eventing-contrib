@@ -112,9 +112,7 @@ function install_knative_kafka(){
 function run_e2e_tests(){
 
   oc get ns ${TEST_EVENTING_NAMESPACE} 2>/dev/null || TEST_EVENTING_NAMESPACE="knative-eventing"
-  sed "s/namespace: ${KNATIVE_DEFAULT_NAMESPACE}/namespace: ${TEST_EVENTING_NAMESPACE}/g" ${CONFIG_TRACING_CONFIG} > tmp.tracing.config.yaml
-  oc replace -f tmp.tracing.config.yaml
-  rm tmp.tracing.config.yaml
+  sed "s/namespace: ${KNATIVE_DEFAULT_NAMESPACE}/namespace: ${TEST_EVENTING_NAMESPACE}/g" ${CONFIG_TRACING_CONFIG} | oc replace -f -
   local test_name="${1:-}"
   local run_command=""
   local failed=0
@@ -127,7 +125,7 @@ function run_e2e_tests(){
 
   go_test_e2e -timeout=90m -parallel=12 ./test/e2e \
     "$run_command" \
-    $common_opts --dockerrepo "quay.io/openshift-knative" || failed=$?
+    $common_opts --dockerrepo "quay.io/openshift-knative" --tag "v0.17" || failed=$?
 
   return $failed
 }
