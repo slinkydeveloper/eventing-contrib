@@ -58,10 +58,10 @@ function install_strimzi(){
   | oc -n kafka apply -f -
 
   header "Applying Strimzi Cluster file"
-  oc -n kafka apply -f "https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/${strimzi_version}/examples/kafka/kafka-persistent-single.yaml"
+  oc -n kafka apply -f "https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/${strimzi_version}/examples/kafka/kafka-persistent.yaml"
 
   header "Waiting for Strimzi to become ready"
-  sleep 5; while echo && oc get pods -n kafka | grep -v -E "(Running|Completed|STATUS)"; do sleep 5; done
+  kubectl wait deployment --all --timeout=-1s --for=condition=Available -n kafka
 }
 
 function install_serverless(){
